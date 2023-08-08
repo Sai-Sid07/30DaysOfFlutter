@@ -1,0 +1,7 @@
+pubspec.yaml - File where all packages are added
+android folder - anything and everything related to android development
+ios folder - anything and everything related to ios development
+things related to flutter is done inside the lib folder
+
+stl -> Creates a Flutter Stateless Widget
+The build method is what is called everytime we refresh the UI
