@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar( 
         centerTitle: true,
         title: Text("Catalog App"),
+        foregroundColor: Color.fromARGB(255, 0, 0, 0), //Title Color
       ),
       body: Center(
         child: Container(

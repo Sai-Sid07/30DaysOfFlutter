@@ -37,10 +37,74 @@ Ex: child: Text("$name$days${"${name2}Hi"}$float") or child: Text("$name$days${n
     const means that the object's entire deep state can be determined entirely at compile time and that the object 
     will be frozen and completely immutable.
 
-Scafold Widget:
+* Scafold Widget:
 appBar -> Equivalent to header
 body -> Main content
 Everything in flutter is a widget
 For Footer - 
 bottomNavigationBar, drawer etc
 In Flutter, most of the times, the name of the widget is the name of the property
+
+One good practice is that hover over each attribute to see the type of value it wants and then pass it accordingly.
+
+* Functions:
+returnType functionName(){
+
+}
+In case we want to have optional parameters where if the parameter isn't specified, we fix a default value
+returnType functionName({int param = value}){}
+when calling the function: functionNmae(param: value or leave it blank);
+
+If we want to fix a required parameter then we use the decorator @required
+returnType functionName({@required bool param1, int param2 = value}){}
+Method -> Inside a class
+Function -> Outside a class, standalone
+Passing an argument when calling a function - (parameter:value)
+
+void main() {
+  //Main Entry Point
+  //runApp is the method to call your class with the main app code
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: HomePage());
+  }
+}
+BuildContext context gives us the context related information about which function resides in which file
+Gives context about the location of the function in the Tree(Structure of the file).
+Inside materialApp, we have multiple options like Themes:
+themeMode: ThemeMode.dark, //Uses the design choice mentioned inside darkTheme
+      darkTheme: ThemeData(
+        brightness: Brightness.dark
+      ), -> To implement dark mode and its settings
+
+Sample:
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+      themeMode: ThemeMode.dark, //Uses the design choice mentioned inside darkTheme
+      theme: ThemeData(
+        primarySwatch: Colors.amber //Primary Swatch matches all the UI elements with the specified scheme
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: AppBarTheme( //This is overriden if a theme is applied in nested functions
+          color: Color.fromARGB(255, 255, 238, 0) //App bar
+        ),
+        canvasColor: Color.fromARGB(255, 0, 0, 0) //Background
+      ),
+    );
+  }
+
+* Routes in Flutter:
+/ is the home route and in your App body, either have home: or "/" : (context) => HomePage(). Having both will cause an error
+initialRoute - This specifies the base route that should be considered. If you want it different from "/"
+
+Classes - Name and subword always start with capital letters.
+Functions - Follows camelCase
