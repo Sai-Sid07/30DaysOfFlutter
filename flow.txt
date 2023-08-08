@@ -108,3 +108,25 @@ initialRoute - This specifies the base route that should be considered. If you w
 
 Classes - Name and subword always start with capital letters.
 Functions - Follows camelCase
+
+* Flow of Flutter
+In Flutter, every Widget is a parent and it can carry atmost one child. (Nest another widget inside it)
+
+In order to add images to your Flutter application, go to pubspec.yaml, 
+add a key named assets:
+then create a folder in your root directory and provide the path as a value inside the assets key.
+Now we can access all the files needed in our project.
+Format:-
+assets:
+    - path1
+    - path2
+Tip: Include the full path of the image folder so you can access all the images in one go rather than doing it individually.
+
+In Flutter, Column -> Main Axis is Vertical Axis, Row -> Main Axis is Horizontal Axis
+Note: Image.asset() doesn't belong to a const type, having the parent widget as const throws an error hence avoid this mistake.
+
+In order to use External Libraries in your Flutter application, use pub.dev to get installation instructions for all packages
+If you want spacing between Widgets, then use SizedBox instead of Padding. SizedBox gives you an empty box with Height and Width specified
+Ways to get input from the user:
+    * TextFormField() - This is what is recommended to be used
+    * TextField()

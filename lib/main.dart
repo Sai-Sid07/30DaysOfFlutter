@@ -1,6 +1,7 @@
 import 'package:first_flutter_app/pages/home_page.dart';
 import 'package:first_flutter_app/pages/login_page.dart';
 import "package:flutter/material.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   //Main Entry Point
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       // home: HomePage(),
       themeMode: ThemeMode.light, //Uses the design choice mentioned inside darkTheme
       theme: ThemeData(
-        primarySwatch: Colors.amber //Primary Swatch matches all the UI elements with the specified scheme
+        primarySwatch: Colors.deepPurple, //Primary Swatch matches all the UI elements with the specified scheme
+        fontFamily: GoogleFonts.lato().fontFamily
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
@@ -29,9 +31,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/login",
       routes: {
         //Name of Route : 
-        "/" : (context) => HomePage(), //Here an object of the class HomePage is being created
+        "/" : (context) => const HomePage(), //Here an object of the class HomePage is being created
         //Equivalent of typing new HomePage()
-        "/login" : (context) => LoginPage(),
+        "/login" : (context) => const LoginPage(),
       },
     );
   }
