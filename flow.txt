@@ -5,3 +5,42 @@ things related to flutter is done inside the lib folder
 
 stl -> Creates a Flutter Stateless Widget
 The build method is what is called everytime we refresh the UI
+
+Dart:
+* Dart needs semicolons
+
+* String Interpolation in Dart:
+child: Text("${name}${days}${name2}${float}") and child: Text("$name$days$name2$float")
+Both are examples of String Interpolation and the difference between {} and not using {} is that
+we can include complex expressions inside {} like accessing an array and calling a method and so on.
+Ex: child: Text("$name$days${"${name2}Hi"}$float") or child: Text("$name$days${name2 + "Hi"}$float")
+
+* DataTypes:
+    int days = 30;
+    double float = 2.0;
+    String name = "Welcome to ";
+    String name2 = " days of Flutter ";
+    bool isMale = true;
+    num number = 1; //Can take the form of int or double
+    var variable = "Hello"; //Compiler Decides the datatype based on value
+    const pi = 3.14; //Cannot change the value
+    final f = "Hello";
+    The difference between const and final is that:
+    The value of const must be decided during compile time but final need not be.
+    Ex: When making an API call, we don't know the value during compile time and hence final can be used in this case.
+    Another example is we can use const when assigning values like 1 + 2 but cannot be used when setting the current time 
+    because that is variable in nature.
+    
+    Definition from Docs:
+    "final" means single-assignment: a final variable or field must have an initializer. 
+    Once assigned a value, a final variable's value cannot be changed. final modifies variables.
+    const means that the object's entire deep state can be determined entirely at compile time and that the object 
+    will be frozen and completely immutable.
+
+Scafold Widget:
+appBar -> Equivalent to header
+body -> Main content
+Everything in flutter is a widget
+For Footer - 
+bottomNavigationBar, drawer etc
+In Flutter, most of the times, the name of the widget is the name of the property
