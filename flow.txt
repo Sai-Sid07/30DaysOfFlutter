@@ -141,3 +141,21 @@ Navigator.push -> To move a class/page forward
 Navigator.pop -> To move one class/page behind
 
 debugShowCheckedModeBanner: false, -> Add this property in the main file to remove the debug marker
+
+* Difference between Stateless and Stateful Widget
+State - Anything that can change
+If we have any page where the contents of the page are changed or re-rendered, then it becomes a stateful widget
+Each component can save its own state in order to improve performance and remove unneccessary re-rendering of pages.
+
+A Stateful Widget will have 2 classes while a Stateless widget will have a single class.
+_classname - Private Class naming scheme in dart
+
+Once we have made changes to the code and in order to see the state changing on the screen, 
+we have to reload the entire state. We invoke the method setState() in-order to reload the page.
+This functions calls the build method which will reload the widget of the window.
+
+When using BoxDecoration - Give the background color inside. Because we cannot have 2 colors defined and it will throw an error.
+Define only one background color inside that widget and that should be inside BoxDecoration
+
+In order to have a click functionality for a container, you have to wrap it with Jester or Inkwell. 
+The difference is that Inkwell will provide a ripple effect (or feedback) on clicking the container but jester doesn't.
