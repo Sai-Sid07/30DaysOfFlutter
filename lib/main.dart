@@ -1,5 +1,6 @@
 import 'package:first_flutter_app/pages/home_page.dart';
 import 'package:first_flutter_app/pages/login_page.dart';
+import 'package:first_flutter_app/utils/routes.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // home: HomePage(),
       themeMode: ThemeMode.light, //Uses the design choice mentioned inside darkTheme
       theme: ThemeData(
@@ -31,9 +33,11 @@ class MyApp extends StatelessWidget {
       initialRoute: "/login",
       routes: {
         //Name of Route : 
-        "/" : (context) => const HomePage(), //Here an object of the class HomePage is being created
+        MyRoutes.homeRoute : (context) => const HomePage(), //Here an object of the class HomePage is being created
         //Equivalent of typing new HomePage()
-        "/login" : (context) => const LoginPage(),
+        MyRoutes.loginRoute : (context) => const LoginPage(),
+        //Using the static variable created inside utils/routes.dart
+        //Not a good practice but used to save memory and not have objects created each and every time.
       },
     );
   }

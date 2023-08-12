@@ -130,3 +130,14 @@ If you want spacing between Widgets, then use SizedBox instead of Padding. Sized
 Ways to get input from the user:
     * TextFormField() - This is what is recommended to be used
     * TextField()
+
+Another thing to note in Flutter is that, the Child Argument should always be the last argument in a constructor. 
+(Throws a warning not an error)
+
+* Navigation in Flutter - Using Routes
+We use the class Navigator to navigate between pages
+You can consider Navigator to act like a stack and you can move between pages.
+Navigator.push -> To move a class/page forward
+Navigator.pop -> To move one class/page behind
+
+debugShowCheckedModeBanner: false, -> Add this property in the main file to remove the debug marker
