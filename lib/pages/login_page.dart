@@ -12,7 +12,20 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String name = "";
+  String password = "";
   bool changedButton = false;
+
+  bool isNameValid = false;
+  bool checkName(String name) {
+    return name.isNotEmpty;
+  }
+
+  bool isPasswordValid = false;
+  bool checkPassword(String password) {
+    //Check for length
+    return password.length > 8;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -66,6 +79,19 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() => {});
                     },
                   ),
+                  Container(
+                      alignment: Alignment.bottomLeft,
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        changedButton
+                            ? isNameValid
+                                ? ""
+                                : "Name cannot be empty"
+                            : "",
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold),
+                      )),
                   TextFormField(
                     obscureText: true,
                     // obscuringCharacter: "@", //The character which get replaced when you type anything
@@ -74,7 +100,23 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: "Password",
                         labelStyle: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold)),
+                    onChanged: (passwordEntered) {
+                      password = passwordEntered;
+                    },
                   ),
+                  Container(
+                      alignment: Alignment.bottomLeft,
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        changedButton
+                            ? isPasswordValid
+                                ? ""
+                                : "Invalid Password"
+                            : "",
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold),
+                      )),
                   SizedBox(
                     height: 20,
                   ),
@@ -82,12 +124,21 @@ class _LoginPageState extends State<LoginPage> {
                     onTap: () async {
                       setState(() {
                         changedButton = true;
+                        isNameValid = checkName(name);
+                        isPasswordValid = checkPassword(password);
                       });
-                      await Future.delayed(Duration(seconds: 2));
-                      Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      if (isNameValid && isPasswordValid) {
+                        await Future.delayed(Duration(seconds: 1));
+                        await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                        setState(() {
+                        changedButton = false;
+                        isNameValid = false;
+                        isPasswordValid = false;
+                      });
+                      }
                     },
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 2),
+                      duration: Duration(seconds: 1),
                       width: changedButton ? 40 : 120,
                       height: 40,
                       alignment: Alignment.center,
@@ -97,7 +148,13 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius:
                               BorderRadius.circular(changedButton ? 50 : 10)),
                       child: changedButton
-                          ? Icon(Icons.done, color: Colors.white)
+                          ? Icon(
+                              !isNameValid
+                                  ? Icons.person_off
+                                  : isPasswordValid
+                                      ? Icons.done
+                                      : Icons.password,
+                              color: Colors.white)
                           : Text(
                               "Login",
                               style: TextStyle(

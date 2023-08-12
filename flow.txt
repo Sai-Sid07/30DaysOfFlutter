@@ -159,3 +159,13 @@ Define only one background color inside that widget and that should be inside Bo
 
 In order to have a click functionality for a container, you have to wrap it with Jester or Inkwell. 
 The difference is that Inkwell will provide a ripple effect (or feedback) on clicking the container but jester doesn't.
+
+A point to note:
+Lets say our widget is structured like this - 
+Material 
+  | InkWell
+    | AnimatedContainer
+      -> Contains a decoration
+
+Now if material tries creating a decoration like background color or border, those changes will not be reflected.
+Hence, we should always have our decorations placed inside the ancestors and not the children. 
