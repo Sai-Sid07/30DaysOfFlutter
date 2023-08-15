@@ -169,3 +169,19 @@ Material
 
 Now if material tries creating a decoration like background color or border, those changes will not be reflected.
 Hence, we should always have our decorations placed inside the ancestors and not the children. 
+
+=> Shorthand operator and its used when you have one line functions
+
+Bang Operator (!) -
+In traditional languages, when using conditions, we add a ? to the variable to tell the compiler that 
+there may or may not be a null value.
+But in Dart, this could result in a compiler time error, so we use the ! operator to tell the compiler that
+there won't be a null value in any case.
+
+* Forms - 
+In order to have form validation. we add a Widget called Form and nest the child widgets inside that.
+Each input/TextFormField will have an argument called validator where we can define the validation metrics.
+The first thing we need to do is to have a unique Key for that form which can be globally accessed.
+final _formKey (private variable) = GlobalKey<FormState>();
+This needs to be passed as key: _formKey inside the Form widget.
+We then invoke the validate() method which runs the validator conditions for those inputs.

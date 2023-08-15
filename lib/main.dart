@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       // home: HomePage(),
       themeMode: ThemeMode.light, //Uses the design choice mentioned inside darkTheme
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple, //Primary Swatch matches all the UI elements with the specified scheme
+        primarySwatch: Colors.grey, //Primary Swatch matches all the UI elements with the specified scheme
         fontFamily: GoogleFonts.lato().fontFamily
       ),
       darkTheme: ThemeData(
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         //Name of Route : 
         MyRoutes.homeRoute : (context) => const HomePage(), //Here an object of the class HomePage is being created
         //Equivalent of typing new HomePage()
-        MyRoutes.loginRoute : (context) => const LoginPage(),
+        MyRoutes.loginRoute : (context) => LoginPage(),
         //Using the static variable created inside utils/routes.dart
         //Not a good practice but used to save memory and not have objects created each and every time.
       },
