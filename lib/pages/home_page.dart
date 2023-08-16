@@ -1,3 +1,4 @@
+import "package:first_flutter_app/widgets/drawer.dart";
 import "package:flutter/material.dart";
 
 class HomePage extends StatelessWidget {
@@ -13,17 +14,17 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar( 
         centerTitle: true,
-        title: Text("Catalog App"),
+        title: const Text("Catalog App"),
         foregroundColor: Color.fromARGB(255, 0, 0, 0), //Title Color
       ),
       body: Center(
         child: Container(
-          child: Text(
+          child: const Text(
               // "$name$days${"${name2} (Complex String Interpolation)"}$float"),
               "$name$days$name2$float"),
         ),
       ),
-      drawer: Drawer(), //Hamburger Menu
+      drawer: const MyDrawer(), //Hamburger Menu
     );
   }
 }

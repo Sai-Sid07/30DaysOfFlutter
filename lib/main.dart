@@ -20,17 +20,17 @@ class MyApp extends StatelessWidget {
       // home: HomePage(),
       themeMode: ThemeMode.light, //Uses the design choice mentioned inside darkTheme
       theme: ThemeData(
-        primarySwatch: Colors.grey, //Primary Swatch matches all the UI elements with the specified scheme
+        primarySwatch: Colors.deepPurple, //Primary Swatch matches all the UI elements with the specified scheme
         fontFamily: GoogleFonts.lato().fontFamily
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        appBarTheme: AppBarTheme( //This is overriden if a theme is applied in nested functions
+        appBarTheme: const AppBarTheme( //This is overriden if a theme is applied in nested functions
           color: Color.fromARGB(255, 255, 238, 0) //App bar
         ),
         canvasColor: Color.fromARGB(255, 0, 0, 0) //Background
       ),
-      initialRoute: "/login",
+      initialRoute: "/home",
       routes: {
         //Name of Route : 
         MyRoutes.homeRoute : (context) => const HomePage(), //Here an object of the class HomePage is being created

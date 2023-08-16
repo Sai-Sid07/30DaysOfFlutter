@@ -185,3 +185,32 @@ The first thing we need to do is to have a unique Key for that form which can be
 final _formKey (private variable) = GlobalKey<FormState>();
 This needs to be passed as key: _formKey inside the Form widget.
 We then invoke the validate() method which runs the validator conditions for those inputs.
+
+
+When using Images from your local device, you use Image.asset.
+When using Images through URLs, we use Image.network(imageURL)
+
+* Drawer - 
+Uses the Drawer() to implement a drawer in Flutter.
+Since we want elements stack one below each other, we use ListView() to render elements.
+To set a Drawer Header with Username, email, Display Picture, we use DrawerHeader() to achieve this effect.
+DrawerHeader(
+  child: UserAccountsDrawerHeader(
+    has 2 required fields:
+    accountName:
+    accountEmail:
+    currentAccountPicture:
+  )
+)
+For currentAccountPicture, we can directly pass Image.asset/network to render the image.
+But incase we want a circular image, then we will - 
+CircularAvatar(
+  //This creates a Circular Placeholder.
+  If we use child property, then the image will overlap the circle.
+  We will rather use backgroundImage to achieve this.
+  backgroundImage takes in parameter of type ImageProvider, hence we use NetworkImage or AssetImage property.
+)
+
+Inside ListView, we have ListTile which will help us create tabs and it has a 2 properties:
+leading: -> The icon for that tab and title: Name of that tab
+It also has a onTap function which will help us route between pages

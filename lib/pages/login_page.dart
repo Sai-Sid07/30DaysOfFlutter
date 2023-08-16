@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Password cannot be empty";
-                          } else if (value!.length < 8) {
+                          } else if (value.length < 8) {
                             return "Password needs atleast 8 characters";
                           } else if (!value
                               .contains(RegExp(r'^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).+$'))) {
