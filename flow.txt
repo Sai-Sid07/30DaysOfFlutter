@@ -214,3 +214,5 @@ CircularAvatar(
 Inside ListView, we have ListTile which will help us create tabs and it has a 2 properties:
 leading: -> The icon for that tab and title: Name of that tab
 It also has a onTap function which will help us route between pages
+
+Flutter Theme.of(context) - This looks up the widget tree and returns the nearest Theme in the tree.

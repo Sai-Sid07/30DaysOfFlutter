@@ -1,6 +1,7 @@
 import 'package:first_flutter_app/pages/home_page.dart';
 import 'package:first_flutter_app/pages/login_page.dart';
 import 'package:first_flutter_app/utils/routes.dart';
+import 'package:first_flutter_app/widgets/themes.dart';
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,17 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: HomePage(),
       themeMode: ThemeMode.light, //Uses the design choice mentioned inside darkTheme
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple, //Primary Swatch matches all the UI elements with the specified scheme
-        fontFamily: GoogleFonts.lato().fontFamily
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        appBarTheme: const AppBarTheme( //This is overriden if a theme is applied in nested functions
-          color: Color.fromARGB(255, 255, 238, 0) //App bar
-        ),
-        canvasColor: Color.fromARGB(255, 0, 0, 0) //Background
-      ),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       initialRoute: "/home",
       routes: {
         //Name of Route : 
